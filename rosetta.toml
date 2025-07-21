@@ -1,0 +1,18 @@
+[app]
+bundle_id = "com.example.testapp"
+default_locale = "en-US"
+target_locales = [
+    "zh-Hans",
+    "fr-FR",
+    "de-DE",
+]
+
+[assets]
+zh-Hans = "./screenshots/zh"
+default = "./screenshots/en"
+
+[ai]
+provider = "openai"
+model = "gpt-4o-mini"
+temperature = 0.699999988079071
+max_tokens = 1024

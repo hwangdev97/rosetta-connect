@@ -1,0 +1,21 @@
+{
+  "name": "rosetta-connect-js",
+  "version": "0.1.0",
+  "description": "TypeScript wrapper for App Store Connect SDK",
+  "main": "dist/asc.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "dev": "ts-node asc.ts"
+  },
+  "dependencies": {
+    "@apple/app-store-connect-sdk": "^2.0.0",
+    "node-fetch": "^3.3.0",
+    "form-data": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "ts-node": "^10.9.0"
+  }
+}

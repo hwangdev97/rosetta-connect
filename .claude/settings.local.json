@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(cargo check:*)",
+      "Bash(cargo build:*)",
+      "Bash(./target/release/rosetta-connect:*)",
+      "Bash(ls:*)",
+      "Bash(chmod:*)",
+      "Bash(../target/release/rosetta-connect init --bundle-id com.demo.testapp)",
+      "Bash(../target/release/rosetta-connect pull:*)",
+      "Bash(../target/release/rosetta-connect translate --locales zh-Hans,fr-FR)",
+      "Bash(../target/release/rosetta-connect cost:*)"
+    ],
+    "deny": []
+  }
+}
