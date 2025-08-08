@@ -96,6 +96,41 @@ rosetta-connect validate                            # 验证合规性
 
 > **当前版本**: MVP 演示版本，使用模拟数据展示完整功能流程
 
+## 🛠 开发指南
+
+- **运行环境**
+  - Rust 1.70+，macOS/Linux/Windows
+  - 可选：安装 `just` 或 `cargo-watch` 以提升效率
+- **本地构建**
+  ```bash
+  cargo build --release
+  ./target/release/rosetta-connect --version
+  ```
+- **快速自测**
+  ```bash
+  # 一键跑通核心流程（在仓库根目录）
+  bash ./快速测试脚本.sh
+  ```
+  - 更详细用法见 `测试指南.md`
+- **项目结构**
+  ```text
+  crates/      # Rust 工作区（rc-cli、rc-node 等）
+  js/          # Node/TS 辅助脚本（桥接层）
+  help-center/ # 文档中心
+  rosetta.toml # 配置示例
+  ```
+- **调试与日志**
+  ```bash
+  ROSETTA_DEBUG_JS=1 ./target/release/rosetta-connect pull   # 转发 JS 日志（如实现）
+  ./target/release/rosetta-connect --verbose translate        # 详细输出
+  ```
+- **代码质量**
+  ```bash
+  cargo fmt --all
+  cargo clippy --all-targets -- -D warnings
+  ```
+  提交前请确保无格式/静态检查问题。
+
 ## 🤝 贡献和支持
 
 - 🐛 **发现问题**: [提交 Issue](https://github.com/yourusername/rosetta-connect/issues)
