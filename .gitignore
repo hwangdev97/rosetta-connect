@@ -1,6 +1,5 @@
 # Rust
 /target/
-Cargo.lock
 
 # Node.js
 node_modules/
@@ -30,10 +29,49 @@ AuthKey_*.p8
 # macOS
 .DS_Store
 
-# Local data
-screenshots/
-metadata/
-localizations/
-
 # Logs
 *.log
+
+# Local overrides
+.claude/
+
+# Caches and temp
+.cache/
+tmp/
+temp/
+*.bak
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Package managers
+pnpm-debug.log*
+.pnpm-store/
+
+# Windows
+Thumbs.db
+
+# Editors and tooling
+*.iml
+.eslintcache
+.envrc
+.direnv/
+
+# App metadata version folders (e.g., 2.14.1) at repo root
+[0-9]*.[0-9]*.[0-9]*/
+
+# Domain-like directories (e.g., com.example.app) created at repo root
+/*.*.*/
+
+
+
+# Project cache and generated assets (do not track heavy images and summaries)
+com.time.JustTime/app-summary.json
+com.time.JustTime/**/screenshots/**
+
+# JS example outputs and sample assets
+js/com.time.JustTime/
+js/screenshots/
+js/rosetta.toml
+js/package-lock.json

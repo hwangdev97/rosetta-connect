@@ -1,5 +1,6 @@
 pub mod init;
 pub mod pull;
+pub mod status;
 pub mod translate;
 pub mod diff;
 pub mod push;

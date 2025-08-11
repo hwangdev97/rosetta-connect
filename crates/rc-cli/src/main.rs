@@ -4,6 +4,7 @@ use std::path::PathBuf;
 
 mod config;
 mod commands;
+mod formatter;
 
 #[derive(Parser)]
 #[command(name = "rosetta-connect")]
@@ -34,7 +35,32 @@ enum Commands {
         default_locale: String,
     },
     /// Download current localizations from App Store Connect
-    Pull,
+    Pull {
+        /// Force refresh, skip cache
+        #[arg(long)]
+        force_refresh: bool,
+        /// Number of retry attempts for network failures
+        #[arg(long, default_value = "3")]
+        retry_count: u32,
+        /// Output format: table, json, csv
+        #[arg(long, default_value = "table")]
+        format: String,
+        /// Export to file
+        #[arg(long)]
+        export: Option<PathBuf>,
+        /// Filter specific locales
+        #[arg(long, value_delimiter = ',')]
+        locales: Vec<String>,
+    },
+    /// Check version status and workflow readiness
+    Status {
+        /// Show all versions
+        #[arg(long)]
+        all_versions: bool,
+        /// Show detailed status information
+        #[arg(long)]
+        detailed: bool,
+    },
     /// Generate translations using AI
     Translate {
         /// Target locales to translate
@@ -114,8 +140,17 @@ async fn main() -> Result<()> {
         Commands::Init { bundle_id, default_locale } => {
             commands::init::run(bundle_id, default_locale, &cli.config).await
         }
-        Commands::Pull => {
-            commands::pull::run(&cli.config).await
+        Commands::Pull { force_refresh, retry_count, format, export, locales } => {
+            commands::pull::run(&cli.config, commands::pull::PullOptions {
+                force_refresh,
+                retry_count,
+                output_format: format,
+                export_file: export,
+                filter_locales: locales,
+            }).await
+        }
+        Commands::Status { all_versions, detailed } => {
+            commands::status::run(&cli.config, all_versions, detailed).await
         }
         Commands::Translate { locales, model } => {
             commands::translate::run(locales, model, &cli.config).await

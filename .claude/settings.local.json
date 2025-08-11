@@ -10,7 +10,23 @@
       "Bash(../target/release/rosetta-connect init --bundle-id com.demo.testapp)",
       "Bash(../target/release/rosetta-connect pull:*)",
       "Bash(../target/release/rosetta-connect translate --locales zh-Hans,fr-FR)",
-      "Bash(../target/release/rosetta-connect cost:*)"
+      "Bash(../target/release/rosetta-connect cost:*)",
+      "Bash(npm install)",
+      "Bash(npm view:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(npm run build:*)",
+      "Bash(node:*)",
+      "Bash(npm install:*)",
+      "Bash(export ROSETTA_DEBUG_JS=1)",
+      "Bash(rm:*)",
+      "Bash(./unit-tests.sh:*)",
+      "Bash(./integration-test.sh:*)",
+      "Bash(./build.sh)",
+      "Bash(find:*)",
+      "Bash(../build.sh)",
+      "WebFetch(domain:developer.apple.com)",
+      "WebFetch(domain:stackoverflow.com)",
+      "WebFetch(domain:www.runway.team)"
     ],
     "deny": []
   }

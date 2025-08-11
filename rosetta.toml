@@ -1,5 +1,5 @@
 [app]
-bundle_id = "com.example.testapp"
+bundle_id = "com.time.JustTime"
 default_locale = "en-US"
 target_locales = [
     "zh-Hans",
@@ -13,6 +13,6 @@ default = "./screenshots/en"
 
 [ai]
 provider = "openai"
-model = "gpt-4o-mini"
+model = "gpt-4o"
 temperature = 0.699999988079071
 max_tokens = 1024
